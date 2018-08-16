@@ -29,6 +29,15 @@ class TestTimberPostQuery extends Timber_UnitTestCase {
 		$this->assertNull($pagination);
 	}
 
+	function testEmptyCollection() {
+		$pc = new Timber\PostsCollection();
+		$pc2 = new Timber\PostsCollection([]);
+		$pc3 = new Timber\PostsCollection(false);
+		$this->assertEmpty($pc->get_posts());
+		$this->assertEmpty($pc2->get_posts());
+		$this->assertEmpty($pc3->get_posts());
+	}
+
 	function testPaginationOnLaterPage() {
 		$this->setPermalinkStructure('/%postname%/');
 		register_post_type( 'portfolio' );

@@ -38,7 +38,7 @@ class PostCollection extends \ArrayObject {
 
 	protected static function init( $posts, $post_class ) {
 		$returned_posts = array();
-		if ( is_null($posts) ) {
+		if ( !is_array($posts) ) {
 			$posts = array();
 		}
 		foreach ( $posts as $post_object ) {
